@@ -29,17 +29,7 @@ import { register as registerVideoRoutes } from '../api/assets/video/video.route
 import { register as registerWebLinkRoutes } from '../api/assets/web.link/web.link.routes';
 import { register as registerWebNewsFeedRoutes } from '../api/assets/web.newsfeed/web.newsfeed.routes';
 import { register as registerWordPowerRoutes } from '../api/assets/word.power/word.power.routes';
-import { register as registerEnrollmentRoutes } from '../api/enrollment/enrollment/enrollment.routes';
-import { register as registerEnrollmentTaskRoutes } from '../api/enrollment/enrollment.task/enrollment.task.routes';
 import { register as registerTypesRoutes } from '../api/types/types.routes';
-import { register as registerUserRoutes } from '../api/user/user.routes';
-import { register as registerParticipantActivityResponseRoutes } from '../api/participant.responses/participant.activity.response/participant.activity.response.routes';
-import { register as registerParticipantSelectedActionPlanRoutes } from '../api/participant.responses/participant.selected.action.plan/participant.selected.action.plan.routes';
-import { register as registerParticipantSelectedGoalRoutes } from '../api/participant.responses/participant.selected.goal/participant.selected.goal.routes';
-import { register as registerParticipantSelectedPriorityRoutes } from '../api/participant.responses/participant.selected.priority/participant.selected.priority.routes';
-import { register as registerUserRoleRoutes } from '../api/user.role/user.role.routes';
-import { register as registerParticipantRoutes } from '../api/enrollment/participant/participant.routes';
-import { register as registerStatisticsRoutes } from '../api/statistics/statistics.route';
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -91,17 +81,7 @@ export class Router {
                 registerWebLinkRoutes(this._app);
                 registerWebNewsFeedRoutes(this._app);
                 registerWordPowerRoutes(this._app);
-                registerEnrollmentRoutes(this._app);
-                registerEnrollmentTaskRoutes(this._app);
                 registerTypesRoutes(this._app);
-                registerUserRoutes(this._app);
-                registerParticipantActivityResponseRoutes(this._app);
-                registerParticipantSelectedActionPlanRoutes(this._app);
-                registerParticipantSelectedGoalRoutes(this._app);
-                registerParticipantSelectedPriorityRoutes(this._app);
-                registerUserRoleRoutes(this._app);
-                registerParticipantRoutes(this._app);
-                registerStatisticsRoutes(this._app);
 
                 resolve(true);
             } catch (error) {
