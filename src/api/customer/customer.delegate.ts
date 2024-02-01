@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable key-spacing */
 /* eslint-disable padded-blocks */
 import { CustomerService } from '../../database/repository.services/customer.service';
@@ -53,7 +54,9 @@ export class CustomerControllerDelegate {
     };
 
     delete = async (id: uuid) => {
+        console.log('customer id in delegeate -----', id);
         const record = await this._service.getById(id);
+        console.log('customer record ---->', record);
         if (record == null) {
             ErrorHandler.throwNotFoundError('Customer with id ' + id.toString() + ' cannot be found!');
         }

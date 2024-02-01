@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable key-spacing */
 /* eslint-disable padded-blocks */
 import { CustomerModel } from '../models/customer.model';
