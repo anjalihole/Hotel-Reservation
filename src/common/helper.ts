@@ -6,6 +6,7 @@ import * as fs from 'fs';
 import * as mime from 'mime-types';
 import path from 'path';
 import { ConfigurationManager } from '../config/configuration.manager';
+// import { Gender } from '../domain.types/miscellaneous/system.types';
 import { Gender } from '../domain.types/miscellaneous/system.types';
 import { InputValidationError } from './input.validation.error';
 import { TimeHelper } from './time.helper';
@@ -17,7 +18,6 @@ import bcrypt from 'bcryptjs';
 ////////////////////////////////////////////////////////////////////////
 
 export class Helper {
-
     static getDefaultSearchFilters = (query) => {
         var filters = {};
         var dateFrom = query.dateFrom ? query.dateFrom : null;
@@ -103,11 +103,11 @@ export class Helper {
 
     static generateUserName = () => {
         return genpass.generate({
-            length    : 8,
-            numbers   : false,
-            lowercase : true,
-            uppercase : false,
-            symbols   : false,
+            length: 8,
+            numbers: false,
+            lowercase: true,
+            uppercase: false,
+            symbols: false,
         });
     };
 
@@ -138,8 +138,8 @@ export class Helper {
         }
 
         const rawdata = fs.readFileSync(jsonPath, {
-            encoding : 'utf8',
-            flag     : 'r',
+            encoding: 'utf8',
+            flag: 'r',
         });
 
         const obj = JSON.parse(rawdata);
@@ -164,20 +164,20 @@ export class Helper {
 
     static getSessionHeaders = (token: string) => {
         return {
-            'Content-Type'    : 'application/json; charset=utf-8',
-            Accept            : '*/*',
-            'Cache-Control'   : 'no-cache',
-            'Accept-Encoding' : 'gzip, deflate, br',
-            Connection        : 'keep-alive',
-            Authorization     : 'Bearer ' + token,
+            'Content-Type': 'application/json; charset=utf-8',
+            Accept: '*/*',
+            'Cache-Control': 'no-cache',
+            'Accept-Encoding': 'gzip, deflate, br',
+            Connection: 'keep-alive',
+            Authorization: 'Bearer ' + token,
         };
     };
 
     static getNeedleOptions = (headers) => {
         return {
-            headers    : headers,
-            compressed : true,
-            json       : true,
+            headers: headers,
+            compressed: true,
+            json: true,
         };
     };
 
@@ -278,7 +278,7 @@ export class Helper {
         const d = new Date(date);
         const month = ('00' + (d.getMonth() + 1).toString()).slice(-2);
         const day = ('00' + d.getDate().toString()).slice(-2);
-        const year = (d.getFullYear()).toString().slice(-2);
+        const year = d.getFullYear().toString().slice(-2);
         return [year, month, day].join('');
     };
 
@@ -354,11 +354,11 @@ export class Helper {
 
     static generatePassword(): string {
         const password = genpass.generate({
-            length    : 8,
-            numbers   : true,
-            lowercase : true,
-            uppercase : true,
-            symbols   : true,
+            length: 8,
+            numbers: true,
+            lowercase: true,
+            uppercase: true,
+            symbols: true,
         });
         return password;
     }
@@ -522,11 +522,11 @@ export class Helper {
 
     public static generateDisplayCode = (prefix = null) => {
         const code = genpass.generate({
-            length    : 24,
-            numbers   : true,
-            lowercase : true,
-            uppercase : false,
-            symbols   : false,
+            length: 24,
+            numbers: true,
+            lowercase: true,
+            uppercase: false,
+            symbols: false,
         });
         return prefix ? prefix + '#' + code : code;
     };
@@ -591,5 +591,4 @@ export class Helper {
         }
         return null;
     };
-
 }
