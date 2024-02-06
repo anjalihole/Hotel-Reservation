@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable padded-blocks */
 import express from 'express';
 import { ResponseHandler } from '../../common/response.handler';
@@ -36,6 +37,17 @@ export class CustomerController extends BaseController {
         }
     };
 
+    getAllCustomer = async (request: express.Request, response: express.Response): Promise<void> => {
+        try {
+            // await this.authorize('Customer.GetById', request, response);
+            const record = await this._delegate.getAllCustomer();
+            const message = 'Customers retrieved successfully!';
+            ResponseHandler.success(request, response, message, 200, record);
+        } catch (error) {
+            ResponseHandler.handleError(request, response, error);
+        }
+    };
+
     update = async (request: express.Request, response: express.Response): Promise<void> => {
         try {
             // await this.authorize('Customer.Update', request, response);
@@ -58,14 +70,14 @@ export class CustomerController extends BaseController {
         }
     };
 
-    // search = async (request: express.Request, response: express.Response): Promise<void> => {
-    //     try {
-    //         await this.authorize('Customer.Search', request, response);
-    //         const searchResults = await this._delegate.search(request.query);
-    //         const message = 'Api client records retrieved successfully!';
-    //         ResponseHandler.success(request, response, message, 200, searchResults);
-    //     } catch (error) {
-    //         ResponseHandler.handleError(request, response, error);
-    //     }
-    // };
+    search = async (request: express.Request, response: express.Response): Promise<void> => {
+        try {
+            // await this.authorize('Customer.Search', request, response);
+            const searchResults = await this._delegate.search(request.query);
+            const message = 'Customer records retrieved successfully!';
+            ResponseHandler.success(request, response, message, 200, searchResults);
+        } catch (error) {
+            ResponseHandler.handleError(request, response, error);
+        }
+    };
 }

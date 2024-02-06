@@ -86,16 +86,16 @@ export class CustomAuthenticator implements IAuthenticator {
             }
             apiKey = apiKey.trim();
 
-            const client: CurrentClient = await this._clientService.isApiKeyValid(apiKey);
-            if (!client) {
-                res = {
-                    Result: false,
-                    Message: 'Invalid API Key: Forebidden access',
-                    HttpErrorCode: 403,
-                };
-                return res;
-            }
-            request.currentClient = client;
+            // const client: CurrentClient = await this._clientService.isApiKeyValid(apiKey);
+            // if (!client) {
+            //     res = {
+            //         Result: false,
+            //         Message: 'Invalid API Key: Forebidden access',
+            //         HttpErrorCode: 403,
+            //     };
+            //     return res;
+            // }
+            // request.currentClient = client;
         } catch (err) {
             Logger.instance().log(JSON.stringify(err, null, 2));
             res = {

@@ -7,7 +7,12 @@ import { Helper } from '../../common/helper';
 import { ApiError } from '../../common/api.error';
 import { CustomerValidator as validator } from './customer.validator';
 import { uuid } from '../../domain.types/miscellaneous/system.types';
-import { CustomerCreateModel, CustomerUpdateModel } from '../../domain.types/customer.domain.types';
+import {
+    CustomerCreateModel,
+    CustomerUpdateModel,
+    CustomerSearchDto,
+    CustomerSearchFilters,
+} from '../../domain.types/customer.domain.types';
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -40,6 +45,14 @@ export class CustomerControllerDelegate {
         return this.getEnrichedDto(record);
     };
 
+    getAllCustomer = async () => {
+        const record = await this._service.getAllCustomer();
+        if (record === null) {
+            ErrorHandler.throwNotFoundError('Customer cannot be found!');
+        }
+        return record;
+    };
+
     update = async (id: uuid, requestBody: any) => {
         const record = await this._service.getById(id);
         if (record === null) {
@@ -54,9 +67,7 @@ export class CustomerControllerDelegate {
     };
 
     delete = async (id: uuid) => {
-        console.log('customer id in delegeate -----', id);
         const record = await this._service.getById(id);
-        console.log('customer record ---->', record);
         if (record == null) {
             ErrorHandler.throwNotFoundError('Customer with id ' + id.toString() + ' cannot be found!');
         }
@@ -117,12 +128,53 @@ export class CustomerControllerDelegate {
         };
     };
 
-    // search = async (query: any) => {
-    //     validator.validateSearchRequest(query);
-    //     var filters: ActionPlanSearchFilters = this.getSearchFilters(query);
-    //     var searchResults: ActionPlanSearchResults = await this._service.search(filters);
-    //     var items = searchResults.Items.map(x => this.getSearchDto(x));
-    //     searchResults.Items = items;
-    //     return searchResults;
-    // };
+    getSearchFilters = (query) => {
+        var filters = {};
+
+        var FirstName = query.FirstName ? query.FirstName : null;
+        if (FirstName != null) {
+            filters['FirstName'] = FirstName;
+        }
+
+        var LastName = query.LastName ? query.LastName : null;
+        if (LastName != null) {
+            filters['LastName'] = LastName;
+        }
+
+        var Email = query.Email ? query.Email : null;
+        if (Email != null) {
+            filters['Email'] = Email;
+        }
+
+        var Phone = query.Phone ? query.Phone : null;
+        if (Phone != null) {
+            filters['Phone'] = Phone;
+        }
+
+        return filters;
+    };
+
+    getSearchDto = (record) => {
+        if (record == null) {
+            return null;
+        }
+        return {
+            CustomerID: record.id,
+            FirstName: record.FirstName,
+            LastName: record.LastName,
+            Password: record.Password,
+            Phone: record.Phone,
+            Email: record.Email,
+            Address: record.Address,
+        };
+    };
+
+    search = async (query: any) => {
+        // await validator.validateCreateRequest(query);
+        var filters: CustomerSearchFilters = this.getSearchFilters(query);
+        var searchResults: CustomerSearchDto = await this._service.search(filters);
+        var items = searchResults.Items.map((x) => this.getSearchDto(x));
+        searchResults.Items = items;
+        return searchResults;
+    };
 }
