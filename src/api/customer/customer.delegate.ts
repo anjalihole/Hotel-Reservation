@@ -118,7 +118,7 @@ export class CustomerControllerDelegate {
             return null;
         }
         return {
-            CustomerID: record.CustomerID,
+            CustomerId: record.CustomerId,
             FirstName: record.FirstName,
             LastName: record.LastName,
             Phone: record.Phone,
@@ -159,7 +159,7 @@ export class CustomerControllerDelegate {
             return null;
         }
         return {
-            CustomerID: record.id,
+            CustomerId: record.id,
             FirstName: record.FirstName,
             LastName: record.LastName,
             Password: record.Password,

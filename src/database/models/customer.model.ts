@@ -12,7 +12,7 @@ export class CustomerModel {
     static ModelName = 'Customer';
 
     static Schema = {
-        CustomerID: {
+        id: {
             type: DataTypes.UUID,
             allowNull: false,
             defaultValue: DataTypes.UUIDV4,

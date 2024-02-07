@@ -1,6 +1,6 @@
 import { BaseSearchFilters, BaseSearchResults } from './miscellaneous/base.search.types';
 export interface CustomerCreateModel {
-    CustomerID?: string;
+    CustomerId?: string;
     FirstName?: string;
     LastName?: string;
     Password?: string;
@@ -19,7 +19,7 @@ export interface CustomerUpdateModel {
 }
 
 export interface CustomerDto {
-    CustomerID?: string;
+    CustomerId?: string;
     FirstName?: string;
     LastName?: string;
     Password?: string;
@@ -29,7 +29,7 @@ export interface CustomerDto {
 }
 
 export interface CustomerSearchFilters extends BaseSearchFilters {
-    CustomerID?: string;
+    CustomerId?: string;
     FirstName?: string;
     LastName?: string;
     Password?: string;

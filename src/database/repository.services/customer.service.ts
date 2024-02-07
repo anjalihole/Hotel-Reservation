@@ -120,7 +120,7 @@ export class CustomerService {
 
     delete = async (id: string): Promise<boolean> => {
         try {
-            const result = await this.Customer.destroy({ where: { CustomerID: id } });
+            const result = await this.Customer.destroy({ where: { CustomerId: id } });
             return result === 1;
         } catch (error) {
             Logger.instance().log(error.message);
@@ -133,7 +133,7 @@ export class CustomerService {
             return null;
         }
         const dto: CustomerDto = {
-            CustomerID: client.CustomerID,
+            CustomerId: client.CustomerId,
             FirstName: client.FirstName,
             LastName: client.LastName,
             Phone: client.Phone,

@@ -10,7 +10,7 @@ export class CustomerMapper {
             return null;
         }
         const dto: CustomerDto = {
-            CustomerID: customer.id,
+            CustomerId: customer.id,
             FirstName: customer.FirstName,
             LastName: customer.LastName,
             Phone: customer.Phone,

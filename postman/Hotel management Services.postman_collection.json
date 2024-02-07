@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "c5eb8031-c8df-4d19-bcf2-a9036692844a",
+		"name": "Hotel management Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30252426"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"anjali b\",\r\n    \"LastName\": \"newase\",\r\n    \"Email\": \"anjali@gmail.com\",\r\n    \"Password\": \"123\",\r\n    \"Phone\": \"9975349144\",\r\n    \"Address\": \"pune\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:7272/api/v1/api-customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"anjali bhas\",\r\n    \"LastName\": \"newase\",\r\n    \"Email\": \"anjali@gmail.com\",\r\n    \"Password\": \"123\",\r\n    \"Phone\": \"9975349144\",\r\n    \"Address\": \"pune\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:7272/api/v1/api-customers/e800cfcf-7126-46dd-803a-53706ef4179a"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"anjali\",\r\n    \"LastName\": \"newase\",\r\n    \"Email\": \"anjali@gmail.com\",\r\n    \"Password\": \"123\",\r\n    \"Phone\": \"9975349144\",\r\n    \"Address\": \"pune\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:7272/api/v1/api-customers/18335ffb-3bf4-499c-8e82-553e19ed2d50"
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"anjali\",\r\n    \"LastName\": \"newase\",\r\n    \"Email\": \"anjali@gmail.com\",\r\n    \"Password\": \"123\",\r\n    \"Phone\": \"9975349144\",\r\n    \"Address\": \"pune\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:7272/api/v1/api-customers/18335ffb-3bf4-499c-8e82-553e19ed2d50"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"anjali\",\r\n    \"LastName\": \"newase\",\r\n    \"Email\": \"anjali@gmail.com\",\r\n    \"Password\": \"123\",\r\n    \"Phone\": \"9975349144\",\r\n    \"Address\": \"pune\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:7272/api/v1/api-customers/18335ffb-3bf4-499c-8e82-553e19ed2d50"
+					},
+					"response": []
+				},
+				{
+					"name": "Search with filters",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"anjali\",\r\n    \"LastName\": \"newase\",\r\n    \"Email\": \"anjali@gmail.com\",\r\n    \"Password\": \"123\",\r\n    \"Phone\": \"9975349144\",\r\n    \"Address\": \"pune\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7272/api/v1/api-customers/search?FirstName=anjali&Phone=9975349144&Email=anjali@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7272",
+							"path": [
+								"api",
+								"v1",
+								"api-customers",
+								"search"
+							],
+							"query": [
+								{
+									"key": "FirstName",
+									"value": "anjali"
+								},
+								{
+									"key": "Phone",
+									"value": "9975349144"
+								},
+								{
+									"key": "Email",
+									"value": "anjali@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
